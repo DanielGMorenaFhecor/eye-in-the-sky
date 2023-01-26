@@ -32,7 +32,7 @@ COPY . .
 RUN python -m pip install --upgrade pip
 RUN python -m pip install --upgrade wheel
 RUN python -m pip install numpy==1.19.5
-RUN python -m pip install -r requirements.txt
+RUN python -m pip install --no-cache-dir -r requirements.txt
 
 # REMOVE INVALID CODE MANUALLY
 WORKDIR /usr/local/lib/python3.6/site-packages/libtiff
