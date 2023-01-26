@@ -343,7 +343,7 @@ def onehot_to_rgb(onehot, color_dict):
     return np.uint8(output)
 
 
-def testing(model, trainx, trainy, testx, testy, weights_file = "model_oneshot.h5"):
+def testing(model, trainx, trainy, testx, testy, weights_file = "data/model_oneshot.h5"):
     
     pred_train_all = []
     pred_val_all = []
@@ -369,7 +369,7 @@ def testing(model, trainx, trainy, testx, testy, weights_file = "model_oneshot.h
     return pred_train_all, Y_gt_train, pred_val_all, Y_gt_val
 
 
-def testing_diffsizes(model, trainx, trainy, testx, testy, weights_file = "model_augment.h5"):
+def testing_diffsizes(model, trainx, trainy, testx, testy, weights_file = "data/model_augment.h5"):
     
     pred_train_all = []
     pred_test_all = []
@@ -414,7 +414,7 @@ def testing_diffsizes(model, trainx, trainy, testx, testy, weights_file = "model
 
 ##pred_train_all, Y_gt_train, pred_val_all, Y_gt_val = testing(model, trainx, trainy, testx, testy, weights_file = "model_onehot.h5")
 
-pred_train_13, Y_gt_train_13, pred_val_all, Y_gt_val = testing_diffsizes(model, x_train, y_train, x_val, y_val, weights_file = "model_onehot.h5")
+pred_train_13, Y_gt_train_13, pred_val_all, Y_gt_val = testing_diffsizes(model, x_train, y_train, x_val, y_val, weights_file = "data/model_onehot.h5")
 
 print(pred_val_all[0].shape)
 print(Y_gt_val[0].shape)
@@ -674,7 +674,7 @@ def onehot_to_rgb(onehot, color_dict):
 
 # Pred on train, val, test and save outputs
 
-weights_file = "model_onehot.h5"
+weights_file = "data/model_onehot.h5"
 model.load_weights(weights_file)
 
 #y_pred_test_all = []

@@ -1,0 +1,56 @@
+version: "3.3"
+services:
+  trainer:
+    image: eye-in-the-sky:1.0.0
+    container_name: eye-in-the-sky-trainer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep infinity
+    volumes:
+      - training_data_volume:/app/data
+      - img_dataset_volume:/app/Inter-IIT-CSRE
+      - train_predictions_volume:/app/train_predictions
+      - images_volume:/app/Test_images
+      - output_volume:/app/Test_outputs
+
+volumes:
+  training_data_volume:
+    name: training_data_volume
+    driver: local
+    driver_opts:
+      type: cifs
+      device: ${TRAINING_DATA_DIR}
+      o: username=${SMB_USERNAME},domain=FHECOR,password=${SMB_PASSWORD},rw
+
+  img_dataset_volume:
+    name: img_dataset_volume
+    driver: local
+    driver_opts:
+      type: cifs
+      device: ${IMG_DATASET_DIR}
+      o: username=${SMB_USERNAME},domain=FHECOR,password=${SMB_PASSWORD},rw
+
+  train_predictions_volume:
+    name: train_predictions_volume
+    driver: local
+    driver_opts:
+      type: cifs
+      device: ${TRAINING_PREDICTIONS_DIR}
+      o: username=${SMB_USERNAME},domain=FHECOR,password=${SMB_PASSWORD},rw
+  
+  images_volume:
+    name: images_volume
+    driver: local
+    driver_opts:
+      type: cifs
+      device: ${IMG_DIR}
+      o: username=${SMB_USERNAME},domain=FHECOR,password=${SMB_PASSWORD},rw
+
+  output_volume:
+    name: output_volume
+    driver: local
+    driver_opts:
+      type: cifs
+      device: ${OUTPUT_DIR}
+      o: username=${SMB_USERNAME},domain=FHECOR,password=${SMB_PASSWORD},rw

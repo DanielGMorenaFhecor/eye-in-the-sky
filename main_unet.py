@@ -526,7 +526,7 @@ model.save("model_augment.h5")
 #testy = testy/np.max(testy)
 
 history = model.fit(trainx, trainy_hot, epochs=10, validation_data = (testx, testy_hot),batch_size=64, verbose=1)
-model.save("model_onehot.h5")
+model.save("data/model_onehot.h5")
 
 
 # list all data in history
