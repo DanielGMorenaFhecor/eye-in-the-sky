@@ -21,7 +21,7 @@ from iou import iou
 #%matplotlib inline
 
 
-def UNet(shape = (None,None,4)):
+def UNet(lr, shape = (None,None,4)):
     
     # Left side of the U-Net
     inputs = Input(shape)
@@ -85,7 +85,7 @@ def UNet(shape = (None,None,4)):
     model.compile(optimizer = Adam(lr = 0.000001), loss = 'categorical_crossentropy', metrics = ['accuracy', iou])
     
     model.summary()
-    
+    # lr = 0.000001
     #filelist_modelweights = sorted(glob.glob('*.h5'), key=numericalSort)
     
     #if 'model_nocropping.h5' in filelist_modelweights:
