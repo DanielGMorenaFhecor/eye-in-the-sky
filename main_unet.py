@@ -525,7 +525,7 @@ model.save("model_augment.h5")
 #testx = testx/np.max(testx)
 #testy = testy/np.max(testy)
 
-history = model.fit(trainx, trainy_hot, epochs=10, validation_data = (testx, testy_hot),batch_size=64, verbose=1)
+history = model.fit(trainx, trainy_hot, epochs=20, validation_data = (testx, testy_hot),batch_size=64, verbose=1)
 model.save("data/model_onehot.h5")
 
 
