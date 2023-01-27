@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   trainer:
-    image: eye-in-the-sky:1.0.0
+    image: eye-in-the-sky:1.0.0-full
     container_name: eye-in-the-sky-trainer
     build:
       context: .
