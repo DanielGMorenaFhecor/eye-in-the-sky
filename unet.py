@@ -21,7 +21,7 @@ from iou import iou
 #%matplotlib inline
 
 
-def UNet(lr, shape = (None,None,4)):
+def UNet(shape = (None,None,4)):
     
     # Left side of the U-Net
     inputs = Input(shape)
