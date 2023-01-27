@@ -768,4 +768,4 @@ for i_ in range(len(xtest_list1)):
     
     imx = Image.fromarray(y_pred_test_img)
     
-    imx.save("test_outputs/out"+str(i_+1)+".jpg")
+    imx.save("Test_outputs/out"+str(i_+1)+".jpg")
